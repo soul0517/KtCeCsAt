@@ -457,15 +457,20 @@ class UnscaledKCCA(KCCA):
 if __name__ == "__main__":
     from kernels import DiagGaussianKernel
 
-    # data1 = numpy.loadtxt('x.txt')
-    # print data1
-    # data2 = numpy.loadtxt('y.txt')
-    # print data2
+     #data1 = numpy.loadtxt('x1.txt') 
+     #print data1 
+    # data2 = numpy.loadtxt('y1.txt')
+     #print data2
     # x1 = data1
     # x2 = data2
-
-    x1 = numpy.random.rand(100, 20)
-    x2 = numpy.random.rand(100, 30)
+    data1 = numpy.loadtxt("x1.txt")
+    print data1
+    data2 = numpy.loadtxt("y1.txt")
+    print data2
+    x1 = data1
+    x2 = data2
+    #x1 = numpy.random.rand(100, 20)
+    #x2 = numpy.random.rand(100, 30)
     # print x1
     # print x2
     kernel = LinearKernel()
