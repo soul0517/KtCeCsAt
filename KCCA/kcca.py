@@ -4,6 +4,7 @@ from numpy import dot, eye, ones, zeros
 import scipy.linalg
 from kernel_icd import kernel_icd
 from kernels import LinearKernel
+from kernels import GaussianKernel
 
 class KCCA(object):
     """An implementation of Kernel Canonical Correlation Analysis. 
@@ -465,7 +466,7 @@ if __name__ == "__main__":
     # x2 = data2
     data1 = numpy.loadtxt("x1.txt")
     print data1
-    data2 = numpy.loadtxt("y1.txt")
+    data2 = numpy.loadtxt("y11.txt")
     print data2
     x1 = data1
     x2 = data2
@@ -473,7 +474,9 @@ if __name__ == "__main__":
     #x2 = numpy.random.rand(100, 30)
     # print x1
     # print x2
-    kernel = LinearKernel()
+    
+    #kernel = LinearKernel()
+    kernel = GaussianKernel()
     cca = KCCA(kernel, kernel,
                     regularization=1e-5,
                     decomp='full',
@@ -492,7 +495,8 @@ if __name__ == "__main__":
     y1, y2 = cca.transform(x1, x2)
     print numpy.allclose(y1, orig_y1)
     print numpy.allclose(y2, orig_y2)
-
+    
+    
     # plt.plot(y1,y2)
     # plt.scatter(x1,y1)
     # plt.show()
